@@ -83,7 +83,7 @@ end
 hold off;
 ax = gca; % Get the current axes object
 ax.ColorOrder = customColors;
-ylabel 'current (nA)'; title 'Alternative Current (AC)';
+ylabel 'current (nA)'; title 'Alternative Currents (AC)';
 
 colormap(customColors)
 cb = colorbar;               % show colorbar
@@ -98,18 +98,18 @@ end
 hold off;
 ax = gca; % Get the current axes object
 ax.ColorOrder = customColors;
-ylabel V(mV); title 'AC simulation until steady state';
+ylabel V(mV); title 'Simulate AC currents until steady state';
 
 subplot(3,2,3);
 plot(ts(:,:)',-lys(:,:,1)'/2,'LineWidth',linewidth)
-xlabel time(ms); ylabel 'current (nA)'; title 'Calculus of Variations (CV) Current';
+xlabel time(ms); ylabel 'current (nA)'; title 'Calculus of Variations: Optimal current to reach steady state';
 ax = gca; % Get the current axes object
 ax.ColorOrder = customColors;
 
 
 subplot(3,2,4);
 plot(ts(:,:)',ys(:,:,1)','LineWidth',linewidth)
-ylabel V(mV); title 'CV Path';
+ylabel V(mV); title 'Calculus of Variations Path';
 
 ax = gca; % Get the current axes object
 ax.ColorOrder = customColors;
@@ -122,6 +122,6 @@ end
 hold off;
 ax = gca; % Get the current axes object
 ax.ColorOrder = customColors;
-xlabel time(ms); ylabel V(mV); title 'CV Current Simulation (should match CV Path)';
+xlabel time(ms); ylabel V(mV); title 'Simulate optimal current (should match the path)';
 
 
