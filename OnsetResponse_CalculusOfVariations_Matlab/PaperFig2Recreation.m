@@ -1,4 +1,5 @@
-% simulate_beta1  Forward HH simulation for 20 ms starting at beta1, no stimulus.
+% Recreate figure 2 of the following paper:
+% https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002089
 
 %% Parameters (same as in cv_hh_bvp)
 params.C   = 1.0;
@@ -11,6 +12,8 @@ params.gL  = 0.3;
 params.Q   = 1.5;
 params.Ioff = 0;   % no external stimulus
 params.T = 20;
+
+linewidth = 0.7;
 
 %% Initial state = beta1 (from paper example)
 alpha0 = [0.0036, 0.0530, 0.3177, 0.5960];   % resting (paper)
@@ -41,20 +44,20 @@ xlabel('V (mV)'); ylabel('n'); zlabel('h'); grid on;
 
 
 subplot(4,2,2);
-plot(t1,y1(:,1),'b-',ct1,cty1(:,1),'r-','LineWidth',1.2);
+plot(t1,y1(:,1),'b-',ct1,cty1(:,1),'r-','LineWidth',linewidth);
 legend('Simulation','Calculus of Variations');
 xlabel('t (ms)'); ylabel('V (mV)'); title('Membrane potential V(t)');
 
 subplot(4,2,4);
-plot(t,Istim1_square(t),'b-',ct1,Istim1,'r-','LineWidth',1.2);
+plot(t,Istim1_square(t),'b-',ct1,Istim1,'r-','LineWidth',linewidth);
 xlabel('t (ms)'); ylabel('Istim');
 
 subplot(4,2,6);
-plot(t2,y2(:,1),'b-','LineWidth',1.2);
+plot(t2,y2(:,1),'b-','LineWidth',linewidth);
 xlabel('t (ms)'); ylabel('V (mV)'); title('Membrane potential V(t)');
 
 subplot(4,2,8);
-plot(t,Istim2_square(t),'b-','LineWidth',1.2);
+plot(t,Istim2_square(t),'b-','LineWidth',linewidth);
 xlabel('t (ms)'); ylabel('Istim');
 
 
